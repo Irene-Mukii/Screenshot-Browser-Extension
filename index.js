@@ -1,11 +1,11 @@
-
 //input variables
-const link = document.querySelector('#url');
+const link = document.querySelector('#url');  //use window.location.href to get current url 
 const instanceId = document.querySelector('#instance_id');
 const submitBtn = document.querySelector('.screenshot-btn')
 
 //output variables
 const image = document.querySelector('.screenshot-img');
+const imageLink = document.querySelector('.screenshot-image-link')
 
 
 //getting screenshot
@@ -20,7 +20,8 @@ async function getScreenShot(link) {
 
         .then(response => {
             console.log(response.data);
-            image.src = response.data.screenshot_url ;
+            imageLink.innerHTML = response.data.screenshot_url ;
+            image.src = response.data.screenshot_url;
             console.log("Cost is "+ response.data.cost);
         });
     }catch (error){
