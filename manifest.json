@@ -2,7 +2,9 @@
 	"manifest_version": 2,
 	"name": "Page Screenshoter",
 	"version": "0.1.0",
-	"permissions": ["<all_urls>"],
+	"permissions": [
+        "activeTabs" 
+    ],
 	"background": {
 		"scripts": ["background.js"]
 	},
