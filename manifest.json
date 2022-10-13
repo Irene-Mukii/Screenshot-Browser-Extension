@@ -3,7 +3,7 @@
 	"name": "Page Screenshoter",
 	"version": "0.1.0",
 	"permissions": [
-        "activeTabs" 
+        "activeTab" 
     ],
 	"background": {
 		"scripts": ["background.js"]
