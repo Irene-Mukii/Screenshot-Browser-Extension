@@ -10,9 +10,7 @@ const imageLink = document.querySelector('.screenshot-image-link')
 
 //getting screenshot
 submitBtn.addEventListener('click', ()=> {
-    // imageLink.innerHTML = link ;
-    let link = getCurrentTab();
-    getScreenShot(link)
+    getCurrentTab();
 })
 
 async function getCurrentTab() {
@@ -23,20 +21,23 @@ async function getCurrentTab() {
     console.log(tab);
     var activeUrl = tab.url;
     console.log(activeUrl)
+    imageLink.innerHTML = activeUrl ;
+
+    let link = imageLink.textContent;
+    console.log(link);
+    getScreenShot(link)
   });
-  
-  return activeUrl;
 }
 
 
 async function getScreenShot(link) { 
     try {
         await axios 
-        .get (`https://api.browshot.com/api/v1/screenshot/create?url=${link.value}/&instance_id=12&size=page&key=CXirmDIyiJlRUSK9b7Ylhdkon41r`)
+        .get (`https://api.browshot.com/api/v1/screenshot/create?url=${link}/&instance_id=12&size=page&key=CXirmDIyiJlRUSK9b7Ylhdkon41r`)
 
         .then(response => {
             console.log(response.data);
-            imageLink.innerHTML = link.value ; 
+            //imageLink.innerHTML = link.value ; 
             image.src = response.data.screenshot_url;
             console.log("Cost is "+ response.data.cost);
 
